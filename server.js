@@ -27,14 +27,18 @@ app.get("/world/:country", async (req, res) => {
   res.send(result);
 });
 
-app.get("/update", async (req, res) => {
-  const result = await CountryModel.updateMany(
-    {},
-    { $rename: { "property with spaces": "propertyWithoutSpaces" } }
-  );
-
-  res.send(result);
+app.get("/", async (req, res) => {
+  res.send("<h1>Welcome to the world api!!</h1>");
 });
+
+// app.get("/update", async (req, res) => {
+//   const result = await CountryModel.updateMany(
+//     {},
+//     { $rename: { "property with spaces": "propertyWithoutSpaces" } }
+//   );
+
+//   res.send(result);
+// });
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
